@@ -80,6 +80,9 @@
          * @commandpath gamble [amount] - Gamble your points.
          */
         if (command.equalsIgnoreCase('gamble')) {
+            if (action.equalsIgnoreCase('all')) {
+                action = $.getUserPoints(sender);
+            }
             if (!parseInt(action)) {
                 $.say($.whisperPrefix(sender) + $.lang.get('gambling.usage'));
                 return;
